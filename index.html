@@ -132,79 +132,122 @@
     <div id="progress"></div>
 
     <script>
-        const records = [
-            "احكي لي سر أول مرة أعرفه عنك.",
-            "إيه أجمل ذكرى عشناها مع بعض من وجهة نظرك؟",
-            "اعمل لمراتك مساج لمدة دقيقة.",
-            "إيه أكتر حاجة بتعجبك في شكلي النهاردة؟",
-            "لو هنختار مكان نسافر فيه بكرة، تحبي يكون فين؟",
-            "إيه كان أول انطباع عني لما شفتني؟",
-            "اوصفني في تلات كلمات بس.",
-            "لو رجع بينا الزمن، كنت هتغير إيه في يوم فرحنا؟"
-        ];
+       // 1. مصفوفة الـ 50 تحدي (لهاليبو يح يح 🔥)
+const records = [
+    "قولي أكتر حاجة بتشدك فيا لما بنكون لوحدنا؟",
+    "غمضي عينيكي واستني مني بوسة في مكان غير متوقع.",
+    "احكي لي موقف محرج حصل لك وأنا مش معاك.",
+    "لو طلبت منك نرقص سلو دلوقتي على أغنية بنحبها، هتختار أغنية إيه؟",
+    "إيه أكتر لبس ليا بيعجبك وبتحس إنه بيليق عليا أوي؟",
+    "همس في ودني بكلمة حب بتخلي قلبي يدق.",
+    "لو هنقضي ليلة رومانسية في فندق، تحب يكون الجو عامل ازاي؟",
+    "إيه أكتر حاجة مجنونة نفسك نعملها مع بعض؟",
+    "بوسة رقيقة على رقبتي لمدة 10 ثواني.",
+    "اوصف شعورك أول مرة مسكت فيها إيدي.",
+    "إيه أكتر صفة فيا بتخليك فخور إنك متجوزني؟",
+    "لو معاك عصا سحرية، إيه الحاجة اللي تحب تغيرها في يومنا الروتين؟",
+    "نظرة عين لعين لمدة دقيقة من غير كلام.. مين هيضحك الأول؟",
+    "قولي 'بحبك' بـ 3 لغات مختلفة وبطريقة رومانسية.",
+    "إيه أكتر أكله عملتها وعجبتك أوي ونفسك أكررها؟",
+    "لو طلبت منك توصفني بكلمة واحدة 'جريئة'.. هتكون إيه؟",
+    "مساج سريع لكتفي ورقبتي عشان أفصل من التعب.",
+    "إيه هي أكتر ذكرى 'شقية' بينا مش قادر تنساها؟",
+    "لو هنمثل فيلم رومانسي، تختار نكون زي مين؟",
+    "قولي سر صغير عنك محدش يعرفه غيري.",
+    "إيه أكتر حاجة بتخليك تغير عليا؟",
+    "غمض عينك وحاول تحزر أنا بلمس وشك فين بالظبط.",
+    "لو هنلغي الموبايلات النهاردة، تحب نقضي الوقت في إيه؟",
+    "إيه هو 'الستايل' اللي تحب تشوفني بيه أكتر في البيت؟",
+    "احكي لي عن حلم حلمته بيا وكان جميل.",
+    "بوسة على إيدي وقولي كلمة شكر على وجودي في حياتك.",
+    "لو هنسافر 'شهر عسل' جديد، تختار أي بلد؟",
+    "إيه أكتر حاجة عملتها وفاجئتك بجد؟",
+    "دلعني باسم جديد مكنتش بتقولهولي قبل كده.",
+    "إيه هي الأغنية اللي لما بتسمعها بتفتكرني فوراً؟",
+    "لو ليك طلب واحد 'أمر مطاع' دلوقتي، هيكون إيه؟",
+    "إيه أكتر حركة بعملها بتخليك تضحك من قلبك؟",
+    "احكي لي عن أول مرة حسيت فيها إنك بجد بتحبني.",
+    "حضن دافي لمدة 30 ثانية من غير أي حركة.",
+    "لو بقيت 'مارد' وبنفذ طلباتك، تطلب مني إيه النهاردة؟",
+    "إيه هو المكان اللي نفسك نروح نقعد فيه لوحدنا تماماً؟",
+    "قولي رأيك بصراحة.. إيه أكتر حاجة بتميزني عن أي حد تاني؟",
+    "لو رجعنا لأول يوم تقابلنا فيه، كنت هتقولي إيه زيادة؟",
+    "بوسة 'هادية' على الجبين تعبر عن التقدير.",
+    "إيه أكتر حاجة بتخليني في نظرك 'لهلوبة'؟",
+    "لو هنعمل 'بيجامة بارتي' النهاردة، تحب نتفرج على فيلم إيه؟",
+    "إيه الحاجة اللي دايماً بتوحشك فيا وأنا بعيد عنك؟",
+    "اوصف لي شكلك وأنت بتفكر فيا دلوقتي.",
+    "لو طلبت منك ترسم لي قلب على كف إيدي، هترسمه ازاي؟",
+    "إيه أكتر حاجة بتخليك تحس إنك 'ملك' معايا؟",
+    "غمضي عينك وحاولي تعرفي أنا شايل إيه في إيدي (لو مفيش، تخيل حاجة).",
+    "قولي إيه أكتر حاجة بتهدي أعصابك لما تكون زعلان مني؟",
+    "لو حياتنا كتاب، تحب تختار له عنوان إيه؟",
+    "إيه هي أجرأ فكرة جت في بالك ونفسك ننفذها سوا؟",
+    "العب في شعري برقة لمدة دقيقتين."
+];
 
-        let state = JSON.parse(localStorage.getItem('gameState')) || {
-            isWifeTurn: Math.random() < 0.5,
-            usedIndices: []
-        };
+// 2. دالة لخلط المصفوفة عشوائياً (Fisher-Yates Shuffle)
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
-        const card = document.getElementById('card');
-        const indicator = document.getElementById('turn-indicator');
-        const progress = document.getElementById('progress');
-        const body = document.body;
-        const overlay = document.getElementById('overlay');
+// 3. إدارة الحالة (مع خلط الكروت عند البداية الجديدة)
+let state = JSON.parse(localStorage.getItem('gameState')) || {
+    isWifeTurn: Math.random() < 0.5,
+    usedIndices: [],
+    shuffledOrder: shuffle([...Array(records.length).keys()]) // ترتيب عشوائي للأرقام
+};
 
-        // Show instructions only on first visit
-        if (localStorage.getItem('hasSeenInstructions')) {
-            overlay.style.display = 'none';
-        }
+// إذا كانت اللعبة قديمة ولكن ترتيب الخلط مش موجود (تحديث)
+if (!state.shuffledOrder || state.shuffledOrder.length !== records.length) {
+    state.shuffledOrder = shuffle([...Array(records.length).keys()]);
+}
 
-        function closeInstructions() {
-            overlay.style.display = 'none';
-            localStorage.setItem('hasSeenInstructions', 'true');
-        }
+const card = document.getElementById('card');
+const indicator = document.getElementById('turn-indicator');
+const progress = document.getElementById('progress');
+const body = document.body;
 
-        function saveState() {
-            localStorage.setItem('gameState', JSON.stringify(state));
-        }
+function saveState() {
+    localStorage.setItem('gameState', JSON.stringify(state));
+}
 
-        function nextTurn() {
-            if (state.usedIndices.length === records.length) {
-                state.usedIndices = [];
-                alert("خلصنا كل الكروت! هنبدأ من جديد 🔥");
-            }
+function nextTurn() {
+    // إذا خلصنا الكروت، نعيد الخلط من جديد تماماً
+    if (state.usedIndices.length === records.length) {
+        state.usedIndices = [];
+        state.shuffledOrder = shuffle([...Array(records.length).keys()]);
+        alert("خلصنا الـ 50 كارت! هنبدأ بترتيب عشوائي جديد 🔥");
+    }
 
-            let randomIndex;
-            do {
-                randomIndex = Math.floor(Math.random() * records.length);
-            } while (state.usedIndices.includes(randomIndex));
+    // نأخذ الكارت التالي بناءً على الترتيب العشوائي
+    const nextIndexInShuffled = state.usedIndices.length;
+    const actualRecordIndex = state.shuffledOrder[nextIndexInShuffled];
 
-            state.usedIndices.push(randomIndex);
-            card.innerText = records[randomIndex];
-            state.isWifeTurn = !state.isWifeTurn;
+    state.usedIndices.push(actualRecordIndex);
+    card.innerText = records[actualRecordIndex];
+    state.isWifeTurn = !state.isWifeTurn;
 
-            updateUI();
-            saveState();
-            
-            if (window.navigator.vibrate) window.navigator.vibrate([50, 30, 50]);
-        }
+    updateUI();
+    saveState();
+    
+    if (window.navigator.vibrate) window.navigator.vibrate([50, 30, 50]);
+}
 
-        function updateUI() {
-            if (state.isWifeTurn) {
-                indicator.innerText = "دور الزوجة 👸";
-                body.style.backgroundColor = "var(--wife-color)";
-            } else {
-                indicator.innerText = "دور الزوج 🤴";
-                body.style.backgroundColor = "var(--husband-color)";
-            }
-            progress.innerText = `تحدي رقم ${state.usedIndices.length} من أصل ${records.length}`;
-        }
-
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
-        }
-
-        if(state.usedIndices.length > 0) updateUI();
+function updateUI() {
+    if (state.isWifeTurn) {
+        indicator.innerText = "دور الزوجة 👸";
+        body.style.backgroundColor = "var(--wife-color)";
+    } else {
+        indicator.innerText = "دور الزوج 🤴";
+        body.style.backgroundColor = "var(--husband-color)";
+    }
+    progress.innerText = `تحدي رقم ${state.usedIndices.length} من أصل ${records.length}`;
+}
     </script>
 </body>
 </html>
