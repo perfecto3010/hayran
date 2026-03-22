@@ -4,7 +4,7 @@ const assets = [
   './index.html',
   './gamedata.js',
   './manifest.json',
-  'https://cdn-icons-png.flaticon.com/512/833/833472.png'
+  'https://cdn-icons-png.flaticon.com/512/5726/5726775.png'
 ];
 
 self.addEventListener('install', e => {
