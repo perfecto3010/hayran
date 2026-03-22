@@ -1,4 +1,4 @@
-const cacheName = 'Gahez-v2.3';
+const cacheName = 'Gahez-v3.3';
 const assets = [
   './',
   './index.html',
